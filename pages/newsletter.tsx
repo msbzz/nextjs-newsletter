@@ -11,23 +11,21 @@ function useForm({ initialValues }) {
   const [values, setValues] = React.useState(initialValues);
   return {
     values,
-    handleChange(evento){
-      const{name,value} = evento.target;  
-      console.log('name e value => ',name,value)
+    handleChange(evento) {
+      const { name, value } = evento.target;
+      console.log("name e value => ", name, value);
       setValues({
         ...values,
-        [name]:value,
-      })
-    }
+        [name]: value,
+      });
+    },
   };
 }
 
 export default function NewsletterScrenn() {
-  
   const form = useForm({
     initialValues: {
-      email: "",
-      
+      emailNewsletter: "",
     },
   });
 
@@ -42,6 +40,14 @@ export default function NewsletterScrenn() {
       <form
         onSubmit={(event) => {
           event.preventDefault();
+          // validar form
+          if(!form.values.emailNewsletter.includes('@')){
+            alert('Voce precisa informar um email valido !');
+            return;
+          }
+          alert('Você foi cadastrado com sucesso, cheque seu  email para garantir')
+          // enviar dados servidor
+          // fetch
           console.log("Estamos enviado dados do formulario");
         }}
       >
@@ -60,18 +66,20 @@ export default function NewsletterScrenn() {
               borderRadius: "100%",
               width: "100px",
               marginTop: "16px",
-              marginBotton: "16px",
+              marginBottom: "16px",
             }}
           />
           <Text variant="heading4">Newsletter do DevSoutinho</Text>
 
-          <NewsletterTextField 
-          placeholder="informe seu email" 
-          name='email'
-          value={form.values.email}
-          onChange={form.handleChange}
+          <NewsletterTextField
+            placeholder="informe seu email"
+            name="emailNewsletter"
+            value={form.values.emailNewsletter}
+            onChange={form.handleChange}
           />
-
+          <Box>
+            <Text>Seu email é : {form.values.emailNewsletter}</Text>
+          </Box>
           <Button fullWidth styleSheet={{ marginTop: "16px" }}>
             Cadastrar
           </Button>
@@ -83,14 +91,12 @@ export default function NewsletterScrenn() {
 
 interface NewsletterTextFieldProps {
   placeholder?: string;
-  name:string
-  value?:string;
-  onChange?:(event:React.ChangeEvent<HTMLInputElement>)=> void;
+  name: string;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function NewsletterTextField(
-  props: NewsletterTextFieldProps,
-) {
+function NewsletterTextField(props: NewsletterTextFieldProps) {
   return (
     <Box
       styleSheet={{
