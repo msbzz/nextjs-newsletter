@@ -13,7 +13,7 @@ function useForm({ initialValues }) {
     values,
     handleChange(evento) {
       const { name, value } = evento.target;
-      console.log("name e value => ", name, value);
+      // console.log("name e value => ", name, value);
       setValues({
         ...values,
         [name]: value,
@@ -41,14 +41,25 @@ export default function NewsletterScrenn() {
         onSubmit={(event) => {
           event.preventDefault();
           // validar form
-          if(!form.values.emailNewsletter.includes('@')){
-            alert('Voce precisa informar um email valido !');
+          if (!form.values.emailNewsletter.includes("@")) {
+            alert("Voce precisa informar um email valido !");
             return;
           }
-          alert('Você foi cadastrado com sucesso, cheque seu  email para garantir')
+          alert(
+            "Você foi cadastrado com sucesso, cheque seu  email para garantir"
+          );
           // enviar dados servidor
           // fetch
-          console.log("Estamos enviado dados do formulario");
+          fetch("/api/newsletter/optin", {
+            method: "POST",
+            headers:{
+              "Content-type":"application/json",
+            },
+            body: JSON.stringify(form.values),
+          }).then(async (respostaDoServer) => {
+            await console.log(respostaDoServer.json());
+          });
+          // console.log("Estamos enviado dados do formulario");
         }}
       >
         <Box
