@@ -40,11 +40,15 @@ export default function NewsletterScrenn() {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          // validar form
-          if (!form.values.emailNewsletter.includes("@")) {
-            alert("Voce precisa informar um email valido !");
-            return;
-          }
+          // validar form  
+
+          //// A validação foi desabilitada no front-end (`newsletter.tsx`) 
+          ////e transferida para o back-end (`optin.ts`)
+          
+          // if (!form.values.emailNewsletter.includes("@")) {
+          //   alert("Voce precisa informar um email valido !");
+          //   return;
+          // }
           alert(
             "Você foi cadastrado com sucesso, cheque seu  email para garantir"
           );

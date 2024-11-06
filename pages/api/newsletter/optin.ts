@@ -19,6 +19,20 @@ const httpStatus ={
 const controllerByMethod ={
   async POST(req:NextApiRequest,res:NextApiResponse){
     console.log(req.body.emailNewsletter)
+    
+    const email = req.body.emailNewsletter
+    
+    // fail fast validation
+    if(!Boolean(email) || !email.includes('@')){
+
+      //console.log('dentro da critica')
+
+      res
+      .status(httpStatus.BadRequest)
+      .json({message:"voce precisa enviar um email valido ex:'teste@email.com"});
+      return;
+    }
+
     res
     .status(httpStatus.Success)
     .json({message:'Post request'})
