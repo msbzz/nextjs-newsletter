@@ -4,7 +4,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 // Supabase Setup
 //===============
-//const SUPABASE_KEY = process.env.SUPABASE_KEY;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const dbClient = createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -89,16 +88,4 @@ export default function handler(
   controller(request, response);
 }
 
-// export default function handler(
-//   request:NextApiRequest,
-//   response:NextApiResponse
-// ){
-
-//   // Servidor
-//   // Request e Response
-//   // Body e Headers
-//   // Status Http (https://httpstatusdogs.com)
-//   // Request methods
-
-//   const responseBody = {name:'Mario Souto'}
-//   response.status(httpStatus.Success).json({responseBody})
+ 
