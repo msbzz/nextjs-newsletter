@@ -9,6 +9,7 @@
     "build": "next build"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.4",
     "@skynexui/responsive_stylesheet": "^1.8.1",
     "@supabase/supabase-js": "^2.46.1",
     "@types/styled-components": "^5.1.25",
