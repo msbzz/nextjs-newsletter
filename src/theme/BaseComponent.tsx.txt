@@ -1,0 +1,46 @@
+import React from "react";
+import styled from "styled-components";
+import { StyleSheet } from '@src/theme/StyleSheet';
+import { parseStyleSheet } from "@skynexui/responsive_stylesheet";
+
+interface StyledBaseComponentProps {
+  styleSheet?: StyleSheet;
+  as?: string; // Aceitar o tipo do elemento como 'img', 'div', etc.
+  src?: string;
+  alt?: string;
+  [key: string]: any; // Para aceitar outras props
+}
+
+const StyledBaseComponent = styled.div<StyledBaseComponentProps>`
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-shrink: 0;
+  ${({ styleSheet }) => parseStyleSheet(styleSheet)}
+`;
+
+export const BaseComponent = React.forwardRef<unknown, StyledBaseComponentProps>(
+  ({ as = "div", src, alt, ...props }, ref) => {
+    // Se `as` for "img", renderiza uma tag <img> com `src` e `alt`
+    if (as === "img") {
+      return (
+        <StyledBaseComponent
+          as="img"
+          src={src}
+          alt={alt}
+          ref={ref}
+          {...props}
+        />
+      );
+    }
+
+    // Para outros valores de `as`, renderiza um <div> ou outro elemento
+    return (
+      <StyledBaseComponent ref={ref} {...props} />
+    )
+  }
+);
+
+BaseComponent.defaultProps = {
+  styleSheet: {},
+};

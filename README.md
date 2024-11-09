@@ -6,7 +6,7 @@
 
    - Este projeto demonstra a criação de uma aplicação simples de newsletter utilizando funcionalidades full stack, com Next.js, Supabase e SendGrid. O objetivo é criar uma aplicação completa que permita o cadastro de e-mails em uma newsletter, armazenamento em um banco de dados e envio de confirmações via e-mail.
 
- <img src="/img/projeto.png" alt="white board" width="500"/>
+ <img src="/public/img/projeto.png" alt="white board" width="500"/>
 
  
 ## 📋 Objetivos do Projeto
@@ -62,9 +62,19 @@
 ### Observação Importante
 
 - **Supabase**: É necessário criar uma conta no Supabase para configurar o banco de dados que armazenará os e-mails dos usuários.
-- **SendGrid**: É necessário criar uma conta no SendGrid para configurar o envio de e-mails de confirmação. O SendGrid facilita o envio de e-mails, pois evita que eles caiam na pasta de spam, oferece uma API simplificada e dispensa a configuração manual de servidores de e-mail. Além do SendGrid, você pode optar por outros serviços gratuitos de envio de e-mail, como Mailgun,Amazon SES ou mesmo EmailJS ou Nodemailer com uma conta gratuita do Gmail..
 
- <img src="/img/email.png" alt="servidor de email" width="500"/>
+https://supabase.com/
+
+**obs** : Para acessar dados em uma tabela do Supabase quando o Row Level Security (RLS) está ativado, você precisa de uma chave que tenha permissões para acessar as tabelas protegidas, como a chave de serviço (service_role). A chave pública (anon) tem permissões limitadas e não pode acessar dados protegidos quando o RLS está habilitado.
+
+- **SendGrid**: É necessário criar uma conta no SendGrid para configurar o envio de e-mails de confirmação. O SendGrid facilita o envio de e-mails, pois evita que eles caiam na pasta de spam, oferece uma API simplificada e dispensa a configuração manual de servidores de e-mail.
+
+https://sendgrid.com/en-us
+
+ Além do SendGrid, você pode optar por outros serviços gratuitos de envio de e-mail, como Mailgun,Amazon SES ou mesmo EmailJS ou Nodemailer com uma conta gratuita do Gmail..
+
+
+ <img src="/public/img/email.png" alt="servidor de email" width="500"/>
 
  
 ## Instalação do Projeto
@@ -104,4 +114,4 @@ npm run dev ou yarn dev
 O projeto estará acessível em `http://localhost:3000/newsletter`  
 
 
- 
+  <img src="/public/img/devdog2.gif" alt="servidor de email" width="500"/>

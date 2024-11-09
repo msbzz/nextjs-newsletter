@@ -1,8 +1,9 @@
 import { BaseComponent } from "@src/theme/BaseComponent";
 import { StyleSheet } from "@src/theme/StyleSheet";
+import { StaticImageData } from "next/image";
 
 interface ImageProps {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   styleSheet?: StyleSheet; 
 }

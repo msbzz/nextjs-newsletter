@@ -2,7 +2,9 @@ import Box from "@src/components/Box/Box";
 import Button from "@src/components/Button/Button";
 import Image from "@src/components/Image/Image";
 import Text from "@src/components/Text/Text";
+import dogImage from 'public/img/dog.png'; // caminho relativo para a imagem local
 // import Form from "@src/components/Form/Form";
+
 
 import { BaseComponent } from "@src/theme/BaseComponent";
 import React from "react";
@@ -66,6 +68,7 @@ export default function NewsletterScrenn() {
           // console.log("Estamos enviado dados do formulario");
         }}
       >
+ 
         <Box
           styleSheet={{
             alignItems: "center",
@@ -75,8 +78,9 @@ export default function NewsletterScrenn() {
           }}
         >
           <Image
-            src="https://github.com/omariosouto.png"
-            alt="Foto do dev soutinho"
+           //"https://github.com/omariosouto.png
+            src= '/img/dog.png'
+            alt="Foto do dev"
             styleSheet={{
               borderRadius: "100%",
               width: "100px",
@@ -84,7 +88,7 @@ export default function NewsletterScrenn() {
               marginBottom: "16px",
             }}
           />
-          <Text variant="heading4">Newsletter do DevSoutinho</Text>
+          <Text variant="heading4">Newsletter do DevDoguinho</Text>
 
           <NewsletterTextField
             placeholder="informe seu email"
